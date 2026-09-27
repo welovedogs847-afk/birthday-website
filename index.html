@@ -1,0 +1,1975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>For Sunita ❤️</title>
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: Georgia, "Times New Roman", serif;
+  background: #171315;
+  color: #fff7f2;
+  overflow-x: hidden;
+}
+
+.screen {
+  display: none;
+  min-height: 100vh;
+  width: 100%;
+  padding: 24px 18px;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(circle at 50% 20%, rgba(111, 28, 49, 0.28), transparent 45%),
+    linear-gradient(145deg, #171315, #24191b 55%, #120e10);
+}
+
+.screen.active {
+  display: flex;
+}
+
+.card {
+  width: 100%;
+  max-width: 430px;
+  min-height: 560px;
+  padding: 42px 25px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  border: 1px solid rgba(255, 210, 220, 0.15);
+  border-top: 6px solid #c88796;
+  border-radius: 28px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(63, 45, 39, 0.98),
+      rgba(40, 31, 29, 0.98)
+    );
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.55),
+    inset 0 1px 0 rgba(255,255,255,0.05);
+}
+
+.lock,
+.big-heart {
+  font-size: 58px;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 8px 15px rgba(255, 90, 120, 0.25));
+}
+
+h1 {
+  font-size: 38px;
+  line-height: 1.15;
+  margin-bottom: 12px;
+  color: #fff8f5;
+}
+
+
+h1 span {
+  color: #f2c1c9;
+}
+
+.subtitle {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #ead8d2;
+  margin-bottom: 28px;
+}
+
+.instruction {
+  font-size: 14px;
+  letter-spacing: 2px;
+  line-height: 1.6;
+  color: #f2dfd9;
+  margin: 20px 0;
+  text-transform: uppercase;
+}
+
+.code-input {
+  width: 100%;
+  max-width: 290px;
+  height: 58px;
+
+  border: 2px solid #8c7770;
+  border-radius: 15px;
+
+  background: rgba(20, 17, 16, 0.75);
+  color: #ffd6df;
+
+  text-align: center;
+  font-size: 24px;
+  letter-spacing: 8px;
+
+  outline: none;
+  margin-bottom: 22px;
+}
+
+.code-input:focus {
+  border-color: #d98b9d;
+  box-shadow: 0 0 20px rgba(217, 139, 157, 0.25);
+}
+
+.main-btn,
+.unlock-btn {
+  border: none;
+  border-radius: 30px;
+
+  padding: 15px 28px;
+
+  background: linear-gradient(135deg, #8e263f, #b52e50);
+  color: white;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 16px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 25px rgba(150, 30, 60, 0.3);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.main-btn:active,
+.unlock-btn:active {
+  transform: scale(0.96);
+}
+
+.main-btn:hover,
+.unlock-btn:hover {
+  box-shadow:
+    0 12px 30px rgba(190, 45, 80, 0.45);
+}
+
+.error {
+  color: #ff9dad;
+  font-size: 14px;
+  margin-top: 15px;
+  min-height: 20px;
+}
+
+.hearts {
+  margin-top: 35px;
+  font-size: 24px;
+  letter-spacing: 8px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.show {
+  display: flex !important;
+}
+
+#opening .card {
+  animation: appear 0.8s ease;
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(25px) scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 430px) {
+  .screen {
+    padding: 18px 12px;
+  }
+
+  .card {
+    min-height: 560px;
+    padding: 35px 20px;
+  }
+
+  h1 {
+    font-size: 34px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+    .instruction {
+      font-size: 13px;
+    }
+  }
+    
+    /* =========================
+   MEMORY BALLOONS
+========================= */
+
+.balloons {
+  position: relative;
+  width: 100%;
+  max-width: 300px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+
+  margin: 25px auto;
+}
+
+.balloon {
+  border: none;
+  background: transparent;
+
+  font-size: 58px;
+  cursor: pointer;
+  user-select: none;
+
+  transition: transform 0.2s ease;
+  animation: balloonFloat 2.5s ease-in-out infinite;
+}
+
+.balloon:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.balloon:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.balloon:nth-child(4) {
+  animation-delay: 0.9s;
+}
+
+/* 💥 Balloon Phutne (Pop/Burst) ka animation */
+/* 💥 Balloon Phutne (Pop/Burst) ka animation */
+.balloon.popping {
+  animation: balloonBurst 0.3s cubic-bezier(0.1, 0.8, 0.3, 1) forwards !important;
+  pointer-events: none !important;
+}
+
+@keyframes balloonBurst {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4) rotate(8deg);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0) rotate(-10deg);
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* 🎈 Balloon ke andar se nikalne wala floating bubble */
+.floating-pop-text {
+  position: absolute;
+  pointer-events: none;
+  font-size: 14px;
+  color: #ffb7c5;
+  font-weight: bold;
+  white-space: nowrap;
+  transform: translate(-50%, -50%);
+  animation: flyOutFromBalloon 0.7s forwards ease-out;
+  z-index: 10;
+  text-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
+}
+
+@keyframes flyOutFromBalloon {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.3);
+  }
+  40% {
+    opacity: 1;
+    transform: translate(-50%, -90px) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -130px) scale(0.8);
+  }
+}
+
+/* Niche aane wala final message box */
+.memory-message {
+  min-height: 45px;
+  margin-top: 12px;
+
+  color: #ffd6df;
+  font-size: 16px;
+  line-height: 1.6;
+
+  opacity: 0;
+  transform: translateY(12px) scale(0.92);
+  transition: opacity 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Balloon se nikal kar niche settle hone ka class */
+.memory-message.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+@keyframes balloonFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* OUR GALLERY */
+
+/* OUR GALLERY */
+
+.gallery-grid {
+  width: 100%;
+  max-width: 330px;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+
+  margin: 20px auto 28px;
+}
+
+.photo-card {
+  text-align: center;
+}
+
+.photo-placeholder {
+  height: 125px;
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+  overflow: hidden; /* Photo rounded corners ke bahar na nikle */
+
+  background:
+    linear-gradient(
+      145deg,
+      #56383b,
+      #302426
+    );
+
+  border: 1px solid rgba(255, 190, 205, 0.2);
+
+  box-shadow:
+    0 8px 20px rgba(0, 0, 0, 0.3);
+
+  transition: transform 0.25s ease, z-index 0.25s ease;
+    
+    
+}
+
+/* Image styling */
+.photo-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Photo khinchegi (stretch) nahi, perfectly fit hogi */
+  display: block;
+  
+}
+
+.photo-placeholder:hover {
+  transform: scale(2.0);
+  z-index: 2;
+}
+
+.photo-placeholder:active {
+  transform: scale(0.96);
+}
+
+.photo-card p {
+  margin-top: 7px;
+
+  font-size: 12px;
+  color: #e8cdd0;
+}
+
+/* =========================
+   LETTERS FOR YOU
+========================= */
+
+.letters-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin: 25px 0;
+}
+
+.letter-card {
+  border: 1px solid rgba(255, 190, 205, 0.25);
+  border-radius: 18px;
+  padding: 18px 8px;
+  min-height: 135px;
+  background: rgba(255, 255, 255, 0.07);
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s ease;
+  font-family: inherit;
+}
+
+.letter-card:hover {
+  transform: translateY(-5px);
+  background: rgba(255, 100, 150, 0.16);
+}
+
+.letter-icon {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.letter-card h3 {
+  margin: 5px 0;
+  font-size: 16px;
+}
+
+.letter-card p {
+  margin: 5px 0;
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+/* LETTER POPUP */
+
+.letter-box {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(10, 5, 10, 0.82);
+}
+
+.letter-box.hidden {
+  display: none;
+}
+
+.letter-paper {
+  position: relative;
+  width: min(90%, 380px);
+  padding: 35px 25px;
+  border-radius: 22px;
+  background: #3a2528;
+  border: 1px solid rgba(255, 190, 205, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  animation: letterOpen 0.35s ease;
+}
+
+@keyframes letterOpen {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.letter-paper h2 {
+  margin-bottom: 18px;
+  color: #ffb6c8;
+}
+
+.letter-paper p {
+  line-height: 1.8;
+  font-size: 15px;
+  color: #fff;
+}
+
+.close-letter {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  border: none;
+  background: transparent;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+@media (max-width: 430px) {
+  .letters-grid {
+    gap: 8px;
+  }
+
+  .letter-card {
+    padding: 14px 5px;
+    min-height: 125px;
+  }
+
+  .letter-icon {
+    font-size: 28px;
+  }
+
+  .letter-card h3 {
+    font-size: 14px;
+  }
+}
+/* =========================
+   OUR SONG
+========================= */
+
+.song-card {
+  margin: 25px auto;
+  padding: 25px;
+  max-width: 320px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 22px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+
+.album-cover {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto 18px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 55px;
+  background: linear-gradient(135deg, #6b263f, #b85c7a);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.song-card h2 {
+  margin: 10px 0 5px;
+}
+
+.song-card p {
+  margin: 5px 0 18px;
+}
+
+.play-btn {
+  border: none;
+  padding: 12px 25px;
+  border-radius: 30px;
+  background: #b85c7a;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+.play-btn:active {
+  transform: scale(0.95);
+}
+
+.song-message {
+  min-height: 20px;
+  font-size: 14px;
+  color: #f3b6c9;
+}
+.song-timer {
+  margin-top: 12px;
+  font-size: 13px;
+  color: #f3b6c9;
+  letter-spacing: 1px;
+  font-family: monospace;
+}
+
+/* =========================
+   OUR STORY
+========================= */
+
+.timeline {
+  position: relative;
+  margin: 25px auto;
+  max-width: 330px;
+  text-align: left;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 20px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.story-item {
+  position: relative;
+  display: flex;
+  gap: 15px;
+  margin-bottom: 22px;
+}
+
+.story-dot {
+  position: relative;
+  z-index: 2;
+  width: 42px;
+  height: 42px;
+  min-width: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #7d304b;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+}
+
+.story-content {
+  flex: 1;
+  padding: 12px 15px;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.story-content h3 {
+  margin: 0 0 6px;
+  font-size: 17px;
+}
+
+.story-content p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+/* =========================
+   OUR CONSTELLATION
+========================= */
+
+.stars-box {
+  position: relative;
+  width: 300px;
+  height: 230px;
+  margin: 25px auto 15px;
+  border-radius: 22px;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 25%, #ffffff 0 2px, transparent 3px),
+    radial-gradient(circle at 75% 20%, #ffffff 0 2px, transparent 3px),
+    radial-gradient(circle at 55% 75%, #ffffff 0 2px, transparent 3px),
+    radial-gradient(circle at 85% 65%, #ffffff 0 2px, transparent 3px),
+    linear-gradient(145deg, #11152d, #32152c);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+.star {
+  position: absolute;
+  color: #fff4c7;
+  font-size: 25px;
+  text-shadow: 0 0 12px #ffffff;
+  animation: starTwinkle 2s infinite alternate;
+}
+
+.star:nth-child(1) {
+  left: 18%;
+  top: 20%;
+}
+
+.star:nth-child(2) {
+  left: 42%;
+  top: 12%;
+}
+
+.star:nth-child(3) {
+  left: 68%;
+  top: 28%;
+}
+
+.star:nth-child(4) {
+  left: 30%;
+  top: 52%;
+}
+
+.star:nth-child(5) {
+  left: 58%;
+  top: 58%;
+}
+
+.star:nth-child(6) {
+  left: 78%;
+  top: 45%;
+}
+
+.constellation-line {
+  position: absolute;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.45);
+  transform-origin: left center;
+}
+
+.line-one {
+  width: 105px;
+  left: 23%;
+  top: 30%;
+  transform: rotate(-8deg);
+}
+
+.line-two {
+  width: 95px;
+  left: 48%;
+  top: 24%;
+  transform: rotate(35deg);
+}
+
+.line-three {
+  width: 105px;
+  left: 34%;
+  top: 57%;
+  transform: rotate(-12deg);
+}
+
+.constellation-heart {
+  position: absolute;
+  left: 50%;
+  top: 43%;
+  transform: translate(-50%, -50%);
+  font-size: 42px;
+  filter: drop-shadow(0 0 12px rgba(255, 100, 150, 0.8));
+  animation: heartGlow 1.8s infinite alternate;
+}
+
+.constellation-message {
+  line-height: 1.6;
+  font-size: 14px;
+  margin: 15px 0 22px;
+}
+
+@keyframes starTwinkle {
+  from {
+    opacity: 0.45;
+    transform: scale(0.8);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes heartGlow {
+  from {
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+
+  to {
+    transform: translate(-50%, -50%) scale(1.08);
+  }
+}
+/* =========================
+   MYSTERY GIFT
+========================= */
+
+.gift-box {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  margin: 35px auto 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gift-box:active {
+  transform: scale(0.94);
+}
+
+.gift-body {
+  position: absolute;
+  left: 15px;
+  bottom: 5px;
+  width: 140px;
+  height: 105px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  font-size: 55px;
+  background: linear-gradient(135deg, #7d304b, #b85c7a);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+.gift-lid {
+  position: absolute;
+  z-index: 2;
+  left: 5px;
+  top: 25px;
+  width: 160px;
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: #b85c7a;
+  box-shadow: 0 7px 15px rgba(0, 0, 0, 0.25);
+  transition: transform 0.6s ease;
+}
+
+.gift-lid span {
+  font-size: 35px;
+}
+
+.gift-box.opened .gift-lid {
+  transform: translateY(-55px) rotate(-5deg);
+}
+
+.gift-message {
+  min-height: 25px;
+  margin: 10px 0 20px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.gift-box.opened {
+  animation: giftShake 0.5s ease;
+}
+
+@keyframes giftShake {
+  0% {
+    transform: rotate(0);
+  }
+
+  25% {
+    transform: rotate(-4deg);
+  }
+
+  50% {
+    transform: rotate(4deg);
+  }
+
+  75% {
+    transform: rotate(-2deg);
+  }
+
+  100% {
+    transform: rotate(0);
+  }
+}
+/* =========================
+   CATCH MY HEART
+========================= */
+
+/* =========================
+   CATCH MY HEART
+========================= */
+
+.heart-game {
+  position: relative;
+  width: 300px;
+  height: 220px;
+  margin: 25px auto 15px;
+  border-radius: 22px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.flying-heart {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  border: none;
+  background: none;
+  font-size: 38px; /* Sabhi 5 hearts comfortably fit hone ke liye size adjust kiya */
+  cursor: pointer;
+  filter: drop-shadow(0 0 10px rgba(255, 80, 130, 0.5));
+  /* [CHANGE] Smooth random floating movement transition */
+  transition: left 0.8s ease-in-out, top 0.8s ease-in-out, transform 0.25s ease, opacity 0.25s ease;
+  user-select: none;
+}
+
+.flying-heart:active {
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+/* ==============================================================
+   [CHANGE] Fake heart gayab (disappear) hone ka pop & fade animation
+   ============================================================== */
+.flying-heart.disappear {
+  transform: translate(-50%, -50%) scale(1.6);
+  opacity: 0;
+  pointer-events: none; /* Gayab hone ke baad dubara click na ho */
+}
+
+.heart-message {
+  min-height: 25px;
+  margin: 12px 0 20px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+
+/* =========================
+   HEARTS COLLECTION
+========================= */
+
+.hearts-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  max-width: 320px;
+  margin: 25px auto 18px;
+}
+
+.heart-card {
+  min-height: 110px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.07);
+  color: white;
+  font-size: 42px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.heart-card span {
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.heart-card:active {
+  transform: scale(0.92);
+}
+
+.heart-card:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.collection-message {
+  min-height: 24px;
+  margin: 12px 0 22px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+/* =========================
+   OUR MOVIE
+========================= */
+
+.movie-card {
+  max-width: 320px;
+  margin: 25px auto;
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.movie-poster {
+  min-height: 210px;
+  padding: 20px 15px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(145deg, #241329, #6b263f);
+  box-shadow: inset 0 0 30px rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+  position: relative;
+}
+
+.movie-video {
+  width: 100%;
+  height: 100%;
+  max-height: 220px;
+  border-radius: 12px;
+  object-fit: cover;
+  display: block;
+}
+
+.movie-video.hidden {
+  display: none !important;
+}
+
+.film-icon {
+  font-size: 55px;
+  margin-bottom: 10px;
+}
+
+.movie-poster h2 {
+  margin: 5px 0;
+  font-size: 22px;
+}
+
+.movie-poster p {
+  margin: 5px 0;
+  font-size: 13px;
+  opacity: 0.85;
+}
+
+.play-movie-btn {
+  margin-top: 18px;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  background: #b85c7a;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.play-movie-btn:active {
+  transform: scale(0.95);
+}
+
+.movie-message {
+  min-height: 22px;
+  margin: 14px 0 5px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* =========================
+   MAKE A WISH
+========================= */
+
+.wish-box {
+  max-width: 320px;
+  margin: 30px auto;
+  padding: 30px 20px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.wish-star {
+  font-size: 75px;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 0 15px rgba(255, 220, 100, 0.7));
+  animation: wishGlow 1.8s infinite alternate;
+}
+
+.wish-box p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 10px 0 20px;
+}
+
+.wish-btn {
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  background: #b85c7a;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.wish-btn:active {
+  transform: scale(0.95);
+}
+
+.wish-star.wished {
+  animation: wishPop 0.7s ease;
+}
+
+@keyframes wishGlow {
+  from {
+    transform: scale(0.95);
+    opacity: 0.75;
+  }
+
+  to {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes wishPop {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.35) rotate(10deg);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+/* =========================
+   ONE LAST SURPRISE
+========================= */
+
+.surprise-box {
+  max-width: 320px;
+  margin: 30px auto;
+  padding: 30px 20px;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.surprise-lock {
+  font-size: 75px;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 0 15px rgba(255, 100, 150, 0.6));
+  transition: transform 0.5s ease;
+}
+
+.surprise-lock.revealed {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.surprise-box p {
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 10px 0 20px;
+}
+
+.surprise-btn {
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  background: #b85c7a;
+  color: white;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+
+.surprise-btn:active {
+  transform: scale(0.95);
+}
+/* =========================
+   FINAL MESSAGE
+========================= */
+
+.final-card {
+  padding-bottom: 35px;
+}
+
+.final-heart {
+  font-size: 65px;
+  animation: finalHeart 1.5s infinite alternate;
+}
+
+.final-card h1 {
+  line-height: 1.25;
+  margin: 12px 0 18px;
+}
+
+.final-message {
+  max-width: 330px;
+  margin: 0 auto 25px;
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.forever-message {
+  max-width: 320px;
+  margin: 20px auto;
+  padding: 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.forever-message p {
+  margin: 10px 0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.final-signature {
+  margin-top: 25px;
+  font-size: 13px;
+  opacity: 0.8;
+  font-style: italic;
+}
+
+.final-hearts {
+  margin-top: 18px;
+  font-size: 20px;
+  letter-spacing: 5px;
+}
+
+@keyframes finalHeart {
+  from {
+    transform: scale(0.95);
+  }
+
+  to {
+    transform: scale(1.08);
+  }
+}
+</style>
+</head>
+
+<body>
+
+  <!-- OPENING SCREEN -->
+  <section id="opening" class="screen active">
+
+    <div class="card">
+
+      <div class="big-heart">♥</div>
+
+      <p class="small-text">
+        A little something made
+      </p>
+
+      <h1>
+        For <span>my favourite person</span>
+      </h1>
+
+      <p class="subtitle">
+        I made something special for you...
+      </p>
+
+      <button
+        class="main-btn"
+        onclick="openSurprise()">
+        Open My Surprise ✨
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- SECRET CODE SCREEN -->
+  <section id="password" class="screen">
+
+    <div class="card">
+
+      <div class="lock">
+        🔐
+      </div>
+
+      <h1>
+        Happy Birthday <br>
+        <span class="name">My Love</span>
+      </h1>
+
+      <p class="subtitle">
+        I made this little surprise for you. But first, you need to enter the secret code to unlock it!
+      </p>
+
+      <p class="instruction">
+        ENTER OUR SECRET CODE TO OPEN
+      </p>
+
+      <input
+        id="secretCode"
+        class="code-input"
+        type="password"
+        inputmode="numeric"
+        maxlength="6"
+        placeholder="••••••"
+      >
+
+      <button
+        class="main-btn"
+        onclick="unlockWebsite()">
+        Open My Surprise ❤️
+      </button>
+
+      <p id="errorMessage" class="error"></p>
+
+      <div class="bottom-hearts">
+        ❤️ 🌷 ❤️
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <script src="script.js"></script>
+    
+<!-- MEMORY BALLOONS -->
+<section id="memories" class="screen">
+
+  <div class="card">
+
+    <div class="big-heart">🎈</div>
+
+    <h1>
+      Memory <span>Balloons</span>
+    </h1>
+
+    <p class="subtitle">
+      Pop the balloons and discover<br>
+      little memories 💕
+    </p>
+
+    <div class="balloons">
+
+      <button class="balloon"
+        onclick="popBalloon(this, 'A beautiful memory ❤️')">
+        🎈
+      </button>
+
+      <button class="balloon"
+        onclick="popBalloon(this, 'A moment I will always remember 💕')">
+        🎈
+      </button>
+
+      <button class="balloon"
+        onclick="popBalloon(this, 'You make ordinary moments special ✨')">
+        🎈
+      </button>
+
+      <button class="balloon"
+        onclick="popBalloon(this, 'One more memory, just for you ❤️')">
+        🎈
+      </button>
+
+    </div>
+
+    <p id="memoryMessage" class="memory-message"></p>
+        <button class="main-btn" onclick="showSection('gallery')">
+  Continue to Our Gallery 📸
+</button>
+
+</section>
+
+<!-- OUR GALLERY -->
+<section id="gallery" class="screen">
+
+  <div class="card">
+
+    <div class="big-heart">📸</div>
+
+    <h1>
+      Our <span>Gallery</span>
+    </h1>
+
+    <p class="subtitle">
+      Little moments,<br>
+      beautiful memories ❤️
+    </p>
+
+    <div class="gallery-grid">
+
+  <div class="photo-card">
+    <div class="photo-placeholder">
+      <img src="images/image1.jpg" alt="Our first memory">
+    </div>
+    <p>Our first memory</p>
+  </div>
+
+  <div class="photo-card">
+    <div class="photo-placeholder">
+      <img src="images/image2.jpg" alt="A special moment">
+    </div>
+    <p>A special moment</p>
+  </div>
+
+  <div class="photo-card">
+    <div class="photo-placeholder">
+      <img src="images/image3.jpg" alt="Always remember">
+    </div>
+    <p>Always remember</p>
+  </div>
+
+  <div class="photo-card">
+    <div class="photo-placeholder">
+      <img src="images/image4.jpg" alt="Just us">
+    </div>
+    <p>Just us</p>
+  </div>
+
+</div>
+
+
+    <button class="main-btn" onclick="showSection('letters')">
+  Continue ❤️
+</button>
+
+  </div>
+
+</section>
+
+<!-- LETTERS FOR YOU -->
+<section id="letters" class="screen">
+
+  <div class="card">
+
+    <div class="big-heart">💌</div>
+
+    <h1>
+      Letters <span>For You</span>
+    </h1>
+
+    <p class="subtitle">
+      A few little words from my heart ❤️
+    </p>
+
+    <div class="letters-grid">
+
+      <button class="letter-card" onclick="openLetter(1)">
+        <div class="letter-icon">💌</div>
+        <h3>For You</h3>
+        <p>Tap to open</p>
+      </button>
+
+      <button class="letter-card" onclick="openLetter(2)">
+        <div class="letter-icon">💕</div>
+        <h3>About You</h3>
+        <p>Tap to open</p>
+      </button>
+
+      <button class="letter-card" onclick="openLetter(3)">
+        <div class="letter-icon">🌹</div>
+        <h3>A Little Note</h3>
+        <p>Tap to open</p>
+      </button>
+
+    </div>
+
+    <div id="letterBox" class="letter-box hidden">
+
+      <div class="letter-paper">
+
+        <button class="close-letter" onclick="closeLetter()">×</button>
+
+        <div id="letterIcon">💌</div>
+
+        <h2 id="letterTitle">For You</h2>
+
+        <p id="letterText"></p>
+
+      </div>
+
+    </div>
+
+    <button class="main-btn" onclick="showSection('song')">
+      Continue 💕
+    </button>
+
+  </div>
+
+</section>
+<!-- OUR SONG -->
+<section id="song" class="screen">
+
+  <div class="card">
+
+    <div class="big-heart">🎵</div>
+
+    <h1>
+      Our <span>Song</span>
+    </h1>
+
+    <p class="subtitle">
+      A song that reminds me of you ❤️
+    </p>
+
+    <div class="song-card">
+
+      <div class="album-cover">
+        🎶
+      </div>
+
+      <h2>Our Special Song</h2>
+
+      <p>For Sunita ❤️</p>
+      
+<audio id="myAudio" src="songs/mysongs1.mp3"></audio>
+
+
+      <button class="play-btn" onclick="playSong()">
+        ▶️ Play Song
+      </button>
+            
+<div id="songTimer" class="song-timer">0:00 / 0:00</div>
+
+      <p id="songMessage" class="song-message"></p>
+
+    </div>
+
+    <button class="main-btn" onclick="showSection('story')">
+      Continue to Our Story 📖
+    </button>
+
+  </div>
+
+</section>
+<!-- OUR STORY -->
+<section id="story" class="screen">
+
+  <div class="card">
+
+    <div class="big-heart">📖</div>
+
+    <h1>
+      Our <span>Story</span>
+    </h1>
+
+    <p class="subtitle">
+      Every beautiful story has<br>
+      little moments ❤️
+    </p>
+
+    <div class="timeline">
+
+      <div class="story-item">
+        <div class="story-dot">❤️</div>
+        <div class="story-content">
+          <h3>Chapter One</h3>
+          <p>Where our story began...</p>
+        </div>
+      </div>
+
+      <div class="story-item">
+        <div class="story-dot">💕</div>
+        <div class="story-content">
+          <h3>Beautiful Moments</h3>
+          <p>All the little memories that became special.</p>
+        </div>
+      </div>
+
+      <div class="story-item">
+        <div class="story-dot">✨</div>
+        <div class="story-content">
+          <h3>Today</h3>
+          <p>And here we are, creating another memory.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <button class="main-btn" onclick="showSection('constellation')">
+      Continue to Our Constellation 🌌
+    </button>
+
+  </div>
+
+</section>
+<!-- OUR CONSTELLATION -->
+<section id="constellation" class="screen">
+
+  <div class="card">
+
+    <div class="big-heart">🌌</div>
+
+    <h1>
+      Our <span>Constellation</span>
+    </h1>
+
+    <p class="subtitle">
+      Some people are written<br>
+      in the stars ✨
+    </p>
+
+    <div class="stars-box">
+
+      <div class="star">✦</div>
+      <div class="star">✦</div>
+      <div class="star">✦</div>
+      <div class="star">✦</div>
+      <div class="star">✦</div>
+      <div class="star">✦</div>
+
+      <div class="constellation-line line-one"></div>
+      <div class="constellation-line line-two"></div>
+      <div class="constellation-line line-three"></div>
+
+      <div class="constellation-heart">❤️</div>
+
+    </div>
+
+    <p class="constellation-message">
+      In a universe full of stars,<br>
+      I'm glad I found you. ❤️
+    </p>
+
+    <button class="main-btn" onclick="showSection('gift')">
+      Continue to Mystery Gift 🎁
+    </button>
+
+  </div>
+
+</section>
+<!-- MYSTERY GIFT -->
+<section id="gift" class="screen">
+
+  <div class="card">
+
+    <div class="big-heart">🎁</div>
+
+    <h1>
+      Mystery <span>Gift</span>
+    </h1>
+
+    <p class="subtitle">
+      I have something special<br>
+      waiting for you... 💕
+    </p>
+
+    <div class="gift-box" onclick="openGift()">
+
+      <div class="gift-lid">
+        <span>🎀</span>
+      </div>
+
+      <div class="gift-body">
+        🎁
+      </div>
+
+    </div>
+
+    <p id="giftMessage" class="gift-message">
+      Tap the gift to open it ✨
+    </p>
+
+    <button
+      id="giftContinue"
+      class="main-btn hidden"
+      onclick="showSection('heart')"
+    >
+      Continue ❤️
+    </button>
+
+  </div>
+
+</section>
+<!-- CATCH MY HEART -->
+
+ <!-- CATCH MY HEART -->
+<section id="heart" class="screen">
+
+  <div class="card">
+
+    <div class="big-heart">❤️</div>
+
+    <h1>
+      Catch My <span>Heart</span>
+    </h1>
+
+    <p class="subtitle">
+      It's running away...<br>
+      Can you catch it? 💕
+    </p>
+
+    <div class="heart-game" id="heartGame">
+
+      <!-- ==============================================
+           [CHANGE] Extra floating fake hearts add kiye gaye
+           ============================================== -->
+      <button class="flying-heart fake-heart" style="left:20%; top:25%;" onclick="catchFakeHeart(this)">💛</button>
+      <button class="flying-heart fake-heart" style="left:75%; top:30%;" onclick="catchFakeHeart(this)">💙</button>
+      <button class="flying-heart fake-heart" style="left:25%; top:75%;" onclick="catchFakeHeart(this)">💜</button>
+      <button class="flying-heart fake-heart" style="left:80%; top:70%;" onclick="catchFakeHeart(this)">💚</button>
+
+      <!-- Main Red Heart (Same purana wala) -->
+      <button
+        class="flying-heart"
+        id="flyingHeart"
+        onclick="catchHeart()"
+      >
+        ❤️
+      </button>
+
+    </div>
+
+    <p id="heartMessage" class="heart-message">
+      Catch the heart ❤️
+    </p>
+
+    <button
+      id="heartContinue"
+      class="main-btn hidden"
+      onclick="showSection('collection')"
+    >
+      Continue to Hearts Collection 💕
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- HEARTS COLLECTION -->
+<section id="collection" class="screen">
+
+  <div class="card">
+
+    <div class="big-heart">💕</div>
+
+    <h1>
+      Hearts <span>Collection</span>
+    </h1>
+
+    <p class="subtitle">
+      Every heart holds<br>
+      a little feeling for you ❤️
+    </p>
+
+    <div class="hearts-grid">
+
+      <button class="heart-card" onclick="collectHeart(1)">
+        ❤️
+        <span>Love</span>
+      </button>
+
+      <button class="heart-card" onclick="collectHeart(2)">
+        💕
+        <span>Care</span>
+      </button>
+
+      <button class="heart-card" onclick="collectHeart(3)">
+        💖
+        <span>Happiness</span>
+      </button>
+
+      <button class="heart-card" onclick="collectHeart(4)">
+        💗
+        <span>Memories</span>
+      </button>
+
+    </div>
+
+    <p id="collectionMessage" class="collection-message">
+      Tap a heart ❤️
+    </p>
+
+    <button
+      class="main-btn"
+      onclick="showSection('movie')"
+    >
+      Continue to Our Movie 🎬
+    </button>
+
+  </div>
+
+</section>
+
+<!-- OUR MOVIE -->
+<section id="movie" class="screen">
+
+  <div class="card">
+
+    <div class="big-heart">🎬</div>
+
+    <h1>
+      Our <span>Movie</span>
+    </h1>
+
+    <p class="subtitle">
+      If our memories were a movie...<br>
+      this would be our little story ❤️
+    </p>
+
+    <div class="movie-card">
+
+      <div class="movie-poster" id="moviePoster">
+        
+        <!-- [FIX] muted, playsinline aur preload add kiya taaki mobile turant load aur play kare -->
+        <video 
+          id="myMovieVideo" 
+          class="movie-video hidden" 
+          src="videos/video1.mp4" 
+          playsinline 
+          webkit-playsinline
+          controls 
+          preload="auto">
+        </video>
+
+        <!-- Default Poster content -->
+        <div id="posterContent">
+          <div class="film-icon">🎞️</div>
+          <h2>Our Little Story</h2>
+          <p>Starring: You & Me ❤️</p>
+        </div>
+
+      </div>
+
+      <button class="play-movie-btn" id="playMovieBtn" onclick="playMovie()">
+        ▶️ Play Our Movie
+      </button>
+
+      <p id="movieMessage" class="movie-message"></p>
+
+    </div>
+
+    <button
+      class="main-btn"
+      onclick="showSection('wish')"
+    >
+      Continue to Make a Wish ⭐
+    </button>
+
+  </div>
+
+</section>
+
+
+
+<!-- MAKE A WISH -->
+<section id="wish" class="screen">
+
+  <div class="card">
+
+    <div class="big-heart">⭐</div>
+
+    <h1>
+      Make a <span>Wish</span>
+    </h1>
+
+    <p class="subtitle">
+      Close your eyes for a moment...<br>
+      and make a little wish. ✨
+    </p>
+
+    <div class="wish-box">
+
+      <div class="wish-star" id="wishStar">
+        ⭐
+      </div>
+
+      <p id="wishMessage">
+        Tap the star and make your wish ❤️
+      </p>
+
+      <button class="wish-btn" onclick="makeWish()">
+        ✨ Make My Wish
+      </button>
+
+    </div>
+
+    <button
+      id="wishContinue"
+      class="main-btn hidden"
+      onclick="showSection('surprise')"
+    >
+      One Last Surprise 💝
+    </button>
+
+  </div>
+
+</section>
+<!-- ONE LAST SURPRISE -->
+<section id="surprise" class="screen">
+
+  <div class="card">
+
+    <div class="big-heart">💝</div>
+
+    <h1>
+      One Last <span>Surprise</span>
+    </h1>
+
+    <p class="subtitle">
+      You thought that was everything...<br>
+      but I saved one more thing for you. ❤️
+    </p>
+
+    <div class="surprise-box">
+
+      <div class="surprise-lock" id="surpriseLock">
+        🔒
+      </div>
+
+      <p id="surpriseMessage">
+        Tap the lock to reveal your surprise ✨
+      </p>
+
+      <button class="surprise-btn" onclick="revealSurprise()">
+        🔓 Reveal Surprise
+      </button>
+
+    </div>
+
+    <button
+      id="finalContinue"
+      class="main-btn hidden"
+      onclick="showSection('final')"
+    >
+      Open My Final Message ❤️
+    </button>
+
+  </div>
+
+</section>
+<!-- FINAL MESSAGE -->
+<section id="final" class="screen">
+
+  <div class="card final-card">
+
+    <div class="big-heart final-heart">❤️</div>
+
+    <p class="small-text">
+      And finally...
+    </p>
+
+    <h1>
+      Happy Birthday <span>Sunita</span> ❤️
+    </h1>
+
+    <p class="final-message">
+      I hope this little journey made you smile,
+      because you deserve countless beautiful moments,
+      endless happiness and lots of love.
+    </p>
+
+    <div class="forever-message">
+      <span>✨</span>
+      <p>
+        No matter how many memories we make,
+        I hope there are always more waiting for us.
+      </p>
+      <span>❤️</span>
+    </div>
+
+    <p class="final-signature">
+      Made with ❤️ just for you
+    </p>
+
+    <div class="final-hearts">
+      ❤️ 💕 ❤️ 💕 ❤️
+    </div>
+
+  </div>
+
+</section>
+
+</body>
+</html>
